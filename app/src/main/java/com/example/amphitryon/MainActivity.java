@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         Request request = new Request.Builder()
-                .url("http://10.100.0.5/mesProjetsPHP/etudiants/authentification.php")
+                .url("http://localhost/amphitryon/authentification.php")
                 .post(formBody)
                 .build();
 
@@ -86,6 +86,12 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         JSONObject user = new JSONObject(responseStr);
                         Log.d("Test",user.getString("login") + " est  connecté");
+                        if(user.getString("statut").compareTo("salle")==0) {
+                            Intent intent = new Intent(MainActivity.this, MenuChefSalleActivity.class);
+                            intent.putExtra("user", user.toString());
+                            startActivity(intent);
+                        }
+
 
                     }
                     catch(JSONException e){
