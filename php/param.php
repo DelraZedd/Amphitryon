@@ -1,7 +1,7 @@
 <?php
 
 Class Param {
-	public static $user = '';
+	public static $user = 'root';
 	public static $pass = '';
-	public static $dsn = 'mysql:host=localhost;dbname=amphi;charset=utf8';
+	public static $dsn = 'mysql:host=localhost;dbname=amphitryon;charset=utf8';
 }

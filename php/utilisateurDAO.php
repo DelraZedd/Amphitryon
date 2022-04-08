@@ -2,7 +2,7 @@
 class UtilisateurDAO{
     public static function authentification($login , $mdp){
         try{
-			$sql = "select idutilisateur, login, statut from amphi 
+			$sql = "select idutilisateur, login, statut from utilisateur 
 			where login= :login and mdp = :mdp " ;
 			$requetePrepa = DBConnex::getInstance()->prepare($sql);
 			$mdp =  md5($mdp);
