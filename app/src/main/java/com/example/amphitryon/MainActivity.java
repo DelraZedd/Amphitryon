@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         Request request = new Request.Builder()
-                .url("http://localhost/amphitryon/authentification.php")
+                .url("http://172.19.228.1/amphitryon/authentification.php")
                 .post(formBody)
                 .build();
 
@@ -82,11 +82,13 @@ public class MainActivity extends AppCompatActivity {
 
                 responseStr = response.body().string();
 
+                System.out.println(responseStr);
+
                 if (responseStr.compareTo("false")!=0){
                     try {
                         JSONObject user = new JSONObject(responseStr);
                         Log.d("Test",user.getString("login") + " est  connecté");
-                        if(user.getString("statut").compareTo("salle")==0) {
+                        if(user.getString("statut").compareTo("SALLE")==0) {
                             Intent intent = new Intent(MainActivity.this, MenuChefSalleActivity.class);
                             intent.putExtra("user", user.toString());
                             startActivity(intent);
